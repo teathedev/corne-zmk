@@ -12,6 +12,17 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+    chosen {
+        zmk,backlight = &backlight;
+    };
+
+    backlight: backlight {
+        compatible = "zmk,backlight";
+        label = "BACKLIGHT";
+        status = "okay";
+        default-brightness = <50>; // Default brightness (0-100)
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -69,13 +80,5 @@
         default-sat = <100>; // Default saturation (0-100)
         default-val = <50>; // Default brightness (0-100)
         default-speed = <50>; // Default animation speed (0-100)
-    };
-
-    // Add backlight configuration
-    backlight {
-        compatible = "zmk,backlight";
-        label = "BACKLIGHT";
-        status = "okay";
-        default-brightness = <50>; // Default brightness (0-100)
     };
 };
