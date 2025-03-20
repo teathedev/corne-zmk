@@ -13,7 +13,7 @@
 
 / {
     chosen {
-        zmk,rgb-underglow = &rgb_ug;
+        zmk,rgb-underglow = &rgb_underglow;
     };
 
     keymap {
@@ -63,7 +63,7 @@
     };
 
     // Add RGB underglow configuration
-    rgb_ug: rgb_underglow {
+    rgb_underglow: rgb_underglow {
         compatible = "zmk,rgb-underglow";
         label = "RGB_UNDERGLOW";
         status = "okay";
