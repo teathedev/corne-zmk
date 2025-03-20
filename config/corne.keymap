@@ -13,7 +13,7 @@
 
 / {
         keymap {
-                compatible = "zmk,keymap";
+                compatible = "zmk,keymap,backlight,rgb";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
