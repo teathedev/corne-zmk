@@ -7,21 +7,21 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/backlight.h>
+// #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-    chosen {
-        zmk,backlight = &backlight;
-    };
-
-    backlight: backlight {
-        compatible = "zmk,backlight";
-        label = "BACKLIGHT";
-        status = "okay";
-        default-brightness = <50>; // Default brightness (0-100)
-    };
+    // chosen {
+    //     zmk,backlight = &backlight;
+    // };
+    //
+    // backlight: backlight {
+    //     compatible = "zmk,backlight";
+    //     label = "BACKLIGHT";
+    //     status = "okay";
+    //     default-brightness = <50>; // Default brightness (0-100)
+    // };
 
     keymap {
         compatible = "zmk,keymap";
