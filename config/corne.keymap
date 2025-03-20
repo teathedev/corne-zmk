@@ -1,7 +1,7 @@
 /*
- * copyright (c) 2020 the zmk contributors
+ * Copyright (c) 2020 The ZMK Contributors
  *
- * spdx-license-identifier: mit
+ * SPDX-License-Identifier: MIT
  */
 
 #include <behaviors.dtsi>
@@ -13,72 +13,65 @@
 
 / {
     chosen {
-        zmk,rgb-underglow= &rgb_ug;
+        zmk,rgb-underglow = &rgb_ug;
     };
-    //
-    // backlight: backlight {
-    //     compatible = "zmk,backlight";
-    //     label = "backlight";
-    //     status = "okay";
-    //     default-brightness = <50>; // default brightness (0-100)
-    // };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             // -----------------------------------------------------------------------------------------
-            // |  esc |  q  |  w  |  e  |  r  |  t  |   |  y  |  u   |  i  |  o  |  p  | bksp |
-            // | tab |  a  |  s  |  d  |  f  |  g  |   |  h  |  j   |  k  |  l  |  ;  |  '   |
-            // | shft |  z  |  x  |  c  |  v  |  b  |   |  n  |  m   |  ,  |  .  |  /  | lctrl |
-            //                    | gui | lwr | spc |   | ent | rse  | alt |
+            // |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | LCTRL |
+            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
             bindings = <
-                &kp esc  &kp q    &kp w    &kp e    &kp r    &kp t        &kp y    &kp u    &kp i    &kp o    &kp p    &kp bspc
-                &kp tab  &kp a    &kp s    &kp d    &kp f    &kp g        &kp h    &kp j    &kp k    &kp l    &kp semi &kp sqt
-                &kp lshft &kp z   &kp x    &kp c    &kp v    &kp b        &kp n    &kp m    &kp comma &kp dot  &kp fslh &kp lctrl
-                                   &kp lgui &mo 1    &kp space            &kp ret  &mo 2    &kp ralt
+                &kp ESC  &kp Q    &kp W    &kp E    &kp R    &kp T        &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BSPC
+                &kp TAB  &kp A    &kp S    &kp D    &kp F    &kp G        &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
+                &kp LSHFT &kp Z   &kp X    &kp C    &kp V    &kp B        &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH &kp LCTRL
+                                   &kp LGUI &mo 1    &kp SPACE            &kp RET  &mo 2    &kp RALT
             >;
         };
 
         lower_layer {
             // -----------------------------------------------------------------------------------------
-            // |  tab |  1  |  2      |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | bksp |
-            // | btclr| bt1 | bt2     | bt3 | bt4 | bt5 |   | lft | dwn |  up | rgt |     |      |
-            // | shft | tog | rgb_tog | rgb_hui | rgb_sai    |     |   |     |     |     |     | rgbt| balit|
-            //                    | gui |     | spc |   | ent |     | alt |
+            // |  TAB |  1  |  2      |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2     | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT | TOG | RGB_TOG | RGB_HUI | RGB_SAI    |     |   |     |     |     |     | RGBT| BaLiT|
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
-                &kp tab   &kp n1  &kp n2  &kp n3  &kp n4  &kp n5        &kp n6  &kp n7  &kp n8  &kp n9  &kp n0  &kp bspc
-                &bt bt_clr &bt bt_sel 0 &bt bt_sel 1 &bt bt_sel 2 &bt bt_sel 3 &bt bt_sel 4 &kp left &kp down &kp up &kp right &trans &trans
-                &kp lshft  &rgb_ug rgb_tog &rgb_ug rgb_hui &rgb_ug rgb_sai &trans &trans        &trans &trans &trans &trans &trans &trans
-                                           &kp lgui &trans &kp space          &kp ret &trans &kp ralt
+                &kp TAB   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+                &kp LSHFT  &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &trans &trans        &trans &trans &trans &trans &trans &trans
+                                           &kp LGUI &trans &kp SPACE          &kp RET &trans &kp RALT
             >;
         };
 
         raise_layer {
             // -----------------------------------------------------------------------------------------
-            // |  tab |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | bksp |
-            // | ctrl |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | shft |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | gui |     | spc |   | ent |     | alt |
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
-                &kp tab  &kp excl &kp at &kp hash &kp dllr &kp prcnt        &kp caret &kp amps &kp kp_multiply &kp lpar &kp rpar &kp bspc
-                &kp lctrl &trans  &trans &trans   &trans   &trans           &kp minus &kp equal &kp lbkt       &kp rbkt &kp bslh &kp grave
-                &kp lshft &trans  &trans &trans   &trans   &trans           &kp under &kp plus  &kp lbrc       &kp rbrc &kp pipe &kp tilde
-                                           &kp lgui &trans &kp space        &kp ret   &trans   &kp ralt
+                &kp TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT        &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+                &kp LCTRL &trans  &trans &trans   &trans   &trans           &kp MINUS &kp EQUAL &kp LBKT       &kp RBKT &kp BSLH &kp GRAVE
+                &kp LSHFT &trans  &trans &trans   &trans   &trans           &kp UNDER &kp PLUS  &kp LBRC       &kp RBRC &kp PIPE &kp TILDE
+                                           &kp LGUI &trans &kp SPACE        &kp RET   &trans   &kp RALT
             >;
         };
     };
 
-    // add rgb underglow configuration
-    rgb_ug {
+    // Add RGB underglow configuration
+    rgb_ug: rgb_underglow {
         compatible = "zmk,rgb-underglow";
-        label = "rgb_underglow";
+        label = "RGB_UNDERGLOW";
         status = "okay";
-        chain-length = <12>; // adjust based on your led count
-        color-map = <0 1 2 3 4 5 6 7 8 9 10 11>; // adjust based on your led indices
-        default-hue = <180>; // default color (0-360)
-        default-sat = <100>; // default saturation (0-100)
-        default-val = <50>; // default brightness (0-100)
-        default-speed = <50>; // default animation speed (0-100)
+        chain-length = <12>; // Number of LEDs
+        color-map = <0 1 2 3 4 5 6 7 8 9 10 11>; // LED indices
+        default-hue = <180>; // Default color (0-360)
+        default-sat = <100>; // Default saturation (0-100)
+        default-val = <50>; // Default brightness (0-100)
+        default-speed = <50>; // Default animation speed (0-100)
     };
 };
