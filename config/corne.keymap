@@ -8,20 +8,9 @@
 
 // Then include other bindings
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/backlight.h>
 
 / {
-    behaviors {
-        bl: backlight {
-            compatible = "zmk,behavior-backlight";
-            #binding-cells = <1>;  // Only needs 1 for BL_* constants
-            label = "BACKLIGHT";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
