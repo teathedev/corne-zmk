@@ -11,24 +11,28 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-
     behaviors {
         bl: backlight {
             compatible = "zmk,behavior-backlight";
             label = "BACKLIGHT";
-            #binding-cells = <0>;
+            #binding-cells = <2>;  // Required for backlight control (value, step)
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
+        // =============================================================
+        // DEFAULT LAYER (QWERTY)
+        // =============================================================
         default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | LSHFT |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+            /*
+             * ------------------------------------------------------------------------------------
+             * | ESC  | Q    | W    | E    | R    | T    |   | Y    | U    | I    | O    | P    | BSPC |
+             * | TAB  | A    | S    | D    | F    | G    |   | H    | J    | K    | L    | ;    | '    |
+             * | CTRL | Z    | X    | C    | V    | B    |   | N    | M    | ,    | .    | /    | SHFT |
+             *                     | GUI  | LWR  | SPC  |   | ENT  | RSE  | ALT  |
+             */
             bindings = <
                 &kp ESC   &kp Q    &kp W    &kp E    &kp R    &kp T        &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BSPC
                 &kp TAB   &kp A    &kp S    &kp D    &kp F    &kp G        &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp SQT
@@ -37,29 +41,39 @@
             >;
         };
 
+        // =============================================================
+        // LOWER LAYER (Numbers, Bluetooth, RGB Controls)
+        // =============================================================
         lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // | ESC  |  1  |  2      |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | TAB  | BT1 | BT2     | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT | BT_DISC | RGB_TOG | RGB_HUI | RGB_SAI    |     |   |     |     |     |     | RGBT| BaLiT|
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            /*
+             * ------------------------------------------------------------------------------------
+             * | ESC  | 1    | 2    | 3    | 4    | 5    |   | 6    | 7    | 8    | 9    | 0    | DEL  |
+             * | TAB  | BT1  | BT2  | BT3  | BT4  | BT5  |   | LEFT | DOWN | UP   | RIGHT|      |      |
+             * | CTRL | BT_DISC | RGB_HUE+ | RGB_SAT+ |      |      |   |      |      |      |      | BL+ | BL- |
+             *                     | GUI  |      | SPC  |   | ENT  |      | ALT  |
+             */
             bindings = <
-                &kp ESC    &kp N1  &kp N2  &kp N3  &kp N4  &kp N5        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
-                &kp TAB    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &kp LCTRL  &bt BT_DISC 0 &rgb_ug RGB_HUI &rgb_ug RGB_SAI &trans &trans        &trans &trans &trans &trans &trans &trans
-                                           &kp LGUI &trans &kp SPACE          &kp RET &trans &kp RALT
+                &kp ESC    &kp N1        &kp N2          &kp N3        &kp N4        &kp N5        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
+                &kp TAB    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+                &kp LCTRL  &bt BT_DISC 0 &rgb_ug RGB_HUI &rgb_ug RGB_SAI &trans      &trans        &trans &trans &trans &trans &bl OUT 1 &bl IN 1
+                                           &kp LGUI      &trans         &kp SPACE    &kp RET       &trans &kp RALT
             >;
         };
 
+        // =============================================================
+        // RAISE LAYER (Symbols)
+        // =============================================================
         raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            /*
+             * ------------------------------------------------------------------------------------
+             * | ESC  | !    | @    | #    | $    | %    |   | ^    | &    | *    | (    | )    | BSPC |
+             * | TAB  |      |      |      |      |      |   | -    | =    | [    | ]    | \    | `    |
+             * | CTRL |      |      |      |      |      |   | _    | +    | {    | }    | |    | ~    |
+             *                     | GUI  |      | SPC  |   | ENT  |      | ALT  |
+             */
             bindings = <
                 &kp ESC   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT        &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-                &kp TAB &trans  &trans &trans   &trans   &trans           &kp MINUS &kp EQUAL &kp LBKT       &kp RBKT &kp BSLH &kp GRAVE
+                &kp TAB   &trans   &trans &trans   &trans   &trans           &kp MINUS &kp EQUAL &kp LBKT       &kp RBKT &kp BSLH &kp GRAVE
                 &kp LCTRL &trans  &trans &trans   &trans   &trans           &kp UNDER &kp PLUS  &kp LBRC       &kp RBRC &kp PIPE &kp TILDE
                                            &kp LGUI &trans &kp SPACE        &kp RET   &trans   &kp RALT
             >;
