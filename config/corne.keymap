@@ -20,6 +20,11 @@
         };
     };
 
+    
+    chosen {
+        zmk,backlight = &_bl;
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
