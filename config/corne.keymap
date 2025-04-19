@@ -9,6 +9,14 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    behaviors {
+        bl: backlight {
+            compatible = "zmk,behavior-backlight";
+            #binding-cells = <2>;
+            label = "BACKLIGHT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -45,7 +53,7 @@
             bindings = <
                 &kp ESC    &kp N1        &kp N2          &kp N3        &kp N4        &kp N5        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
                 &kp TAB    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &kp LCTL  &bt BT_DISC 0 &rgb_ug RGB_HUI &rgb_ug RGB_SAI &trans      &trans        &trans &trans &trans &trans &bl_out &bl_in
+                &kp LCTL  &bt BT_DISC 0 &rgb_ug RGB_HUI &rgb_ug RGB_SAI &trans      &trans        &trans &trans &trans &trans &bl OUT 5 &bl IN 5
                                            &kp LGUI      &trans         &kp SPACE    &kp RET       &trans &kp RALT
             >;
         };
