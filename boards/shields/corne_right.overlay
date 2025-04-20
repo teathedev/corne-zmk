@@ -3,7 +3,7 @@
         compatible = "pwm-leds";
 
         led_strip: rgb_led_strip {
-            pwms = <&pwm0 18 PWM_MSEC(1) PWM_POLARITY_NORMAL>;
+            pwms = <&pwm0 22 PWM_MSEC(1) PWM_POLARITY_NORMAL>;
             label = "RGB Underglow";
         };
     };
@@ -12,7 +12,7 @@
         compatible = "zmk,underglow";
         label = "Underglow";
         strip = <&led_strip>;
-        chain-length = <12>; // Change to the number of LEDs you have
+        chain-length = <22>; // Change to the number of LEDs you have
         color-order = <RGB>; // Or GRB depending on your LED type
     };
 
