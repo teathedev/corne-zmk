@@ -12,11 +12,19 @@
         compatible = "zmk,underglow";
         label = "Underglow";
         strip = <&led_strip>;
-        chain-length = <24>; // Change to the number of LEDs you have
-        color-order = <GRB>; // Or GRB depending on your LED type
+        chain-length = <48>; // Change to the number of LEDs you have
+        color-order = <RGB>; // Or GRB depending on your LED type
+    };
+
+    backlight {
+        compatible = "zmk,backlight";
+        label = "Backlight";
+        brightness = <128>;
+        pwm = <&pwm0 17 PWM_MSEC(1) PWM_POLARITY_NORMAL>; // Change pin if needed
     };
 
     chosen {
         zmk,underglow = &underglow;
+        zmk,backlight = &backlight;
     };
 };
