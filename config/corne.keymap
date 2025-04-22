@@ -41,17 +41,18 @@
             /*
              * ---------------------------------------------------------------------------------
              * | ESC | 1 | 2 | 3 | 4 | 5 |   | 6 | 7 | 8 | 9 | 0 | DEL |
-             * | TAB | BT1 | BT2 | BT3 | BT4 | BT5 |   | LEFT | DOWN | UP | RIGHT | | |
+             * | TAB | BT1 | BT2 | BT3 | BT4 | BT5 |   | LEFT | DOWN | UP | RIGHT | BT_TOG | |
              * | CTRL | BT_DISC | | | |   | | | | | BL+ | BL- |
-             *                | GUI | | SPC |   | ENT | | ALT |
+             *                | GUI | | SPC |   | ENT | BT_CLR | ALT |
              */
             bindings = <
                 &kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
-                &kp TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none  &none
+                &kp TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &bt BT_TOG  &none
                 &kp LCTL  &bt BT_DISC 0  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR &none      &none  &none  &none  &none  &none  &none
-                                     &kp LGUI  &none  &kp SPACE      &kp RET  &none  &kp RALT
+                                         &kp LGUI  &none  &kp SPACE      &kp RET  &bt BT_CLR  &kp RALT
             >;
         };
+
 
         /* ===================== */
         /* RAISE LAYER (Symbols) */
