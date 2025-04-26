@@ -1,12 +1,4 @@
 / {
-    // zephyr,led-strip {
-    //     compatible = "pwm-leds";
-    //
-    //     led_strip: rgb_led_strip {
-    //         pwms = <&pwm0 18 PWM_MSEC(1) PWM_POLARITY_NORMAL>;
-    //         label = "RGB Underglow";
-    //     };
-    // };
 
     led_strip: led_strip {
         compatible = "worldsemi,ws2812-spi"; // More reliable than PWM

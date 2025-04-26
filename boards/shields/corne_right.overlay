@@ -1,11 +1,11 @@
-/ {
-    zephyr,led-strip {
-        compatible = "pwm-leds";
 
-        led_strip: rgb_led_strip {
-            pwms = <&pwm0 48 PWM_MSEC(15) PWM_POLARITY_NORMAL>;
-            label = "RGB Underglow";
-        };
+/ {
+
+    led_strip: led_strip {
+        compatible = "worldsemi,ws2812-spi"; // More reliable than PWM
+        chain-length = <48>; // Number of LEDs
+        spi-mosi-pin = <15>; // P0.15 (commonly used for LED strips)
+        color-order = "RGB"; // Try "GRB" if colors are wrong
     };
 
     underglow {
