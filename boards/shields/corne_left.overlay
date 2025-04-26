@@ -3,7 +3,7 @@
         compatible = "nordic,nrf-pinctrl";
         pwm0_default: pwm0_default {
             group1 {
-                psels = <NRF_PSEL(PWM_OUT0, 0, 15)>;
+                psels = <NRF_PSEL(PWM_OUT0, 0, 15)>; // P0.15 (LED data pin)
             };
         };
     };
@@ -15,10 +15,10 @@
     };
 
     led_strip: led_strip {
-        compatible = "worldsemi,ws2812-spi";
-        chain-length = <48>;
-        spi-mosi-pin = <15>;
-        color-order = "RGB";
+        compatible = "worldsemi,ws2812-spi"; // Best for WS2812/SK6812
+        chain-length = <48>; // Number of LEDs
+        spi-mosi-pin = <15>; // P0.15
+        color-order = "RGB";  // Try "GRB" if colors are wrong
     };
 
     underglow {
@@ -27,7 +27,18 @@
         strip = <&led_strip>;
     };
 
+    // If you have per-key LEDs (replace "gpio_leds" if needed)
+    leds {
+        compatible = "gpio-leds";
+        label = "Per-Key LEDs";
+        led_0 {
+            gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>; // Example pin (adjust)
+            label = "LED 0";
+        };
+    };
+
     chosen {
         zmk,underglow = &underglow;
+        zmk,backlight = &backlight; // Remove if not using backlight
     };
-};
+};;
