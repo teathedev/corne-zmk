@@ -59,13 +59,13 @@
         raise_layer {
             /*
              * ---------------------------------------------------------------------------------
-             * | ESC | ! | @ | # | $ | % |   | ^ | & | * | ( | ) | DEL |
+             * | ESC | ! | @ | # | $ | % |   | ^ | & | * | ( | ) | Backspace |
              * | TAB | | | | | |   | - | = | [ | ] | \ | ` |
              * | CTRL | | | | | |   | _ | + | { | } | | | ~ |
              *                | GUI | Sys Layer| SPC |   | ENT | | ALT |
              */
             bindings = <
-                &kp ESC  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp DEL
+                &kp ESC  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp BSPC
                 &kp TAB  &none  &none  &none  &none  &none      &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE
                 &kp LCTL  &none  &none  &none  &none  &none      &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
                                      &kp LGUI  &mo 3  &kp SPACE      &kp RET  &none  &kp RALT
@@ -78,13 +78,13 @@
         system_layer {
             /*
              * ---------------------------------------------------------------------------------
-             * | F1 | F2 | F3 | F4 | F5 | F6 |   | (none) | Play/Pause | (none) | Screenshot | (none) |
+             * | F1 | F2 | F3 | F4 | F5 | F6 |   | (none) | Play/Pause | (none) | Screenshot | DEL |
              * | F7 | F8 | F9 | F10 | F11 | F12 |   | Prev Track | Vol- | Vol+ | Next Track | Brightness Toggle |
              * | Ctrl | Brightness Down | Brightness Up | (none) | (none) | (none) |   | (none) | (none) | (none) | (none) | BT_CLR_ALL |
              *                | GUI | (none) | (none) |   | (none) | (none) | Alt |
              */
             bindings = <
-                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6      &none       &kp C_PP  &none  &none       &kp C_SCREENSHOT    &none
+                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6      &none       &kp C_PP  &none  &none       &kp PRINTSCREEN    &kp DEL
                 &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12     &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp C_BRIGHTNESS_TOG  &none
                 &kp LCTL &kp C_BRIGHTNESS_DN &kp C_BRIGHTNESS_UP &none  &none  &none      &none       &none     &none         &none       &none    &bt BT_CLR_ALL
                                      &kp LGUI  &none  &none      &none    &none    &kp RALT
