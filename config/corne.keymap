@@ -8,8 +8,8 @@
 
 // Then other includes
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
     keymap {
@@ -43,16 +43,15 @@
              * | ESC | 1 | 2 | 3 | 4 | 5 |   | 6 | 7 | 8 | 9 | 0 | Backspace |
              * | TAB | BT1 | BT2 | BT3 | BT4 | BT5 |   | Left | Down | Up | Right | (none) |
              * | Ctrl | BT Disc | RGB Toggle | RGB Effect | RGB Effect Reverse |   | (none) | (none) | (none) | (none) | (none) | SHFT |
-             *                | GUI | (none) | Space |   | Enter | BT Clear All | Alt |
+             *                | GUI | (none) | Space |   | Enter | Sys Layer | Alt |
              */
             bindings = <
                 &kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC
                 &kp TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none  &none
                 &kp LCTL  &bt BT_DISC 0  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR &none      &none  &none  &none  &none  &none  &kp LSFT
-                                     &kp LGUI  &none  &kp SPACE      &kp RET  &bt BT_CLR_ALL  &kp RALT
+                                     &kp LGUI  &none  &kp SPACE      &kp RET  &mo 3  &kp RALT
             >;
         };
-
 
         /* ===================== */
         /* RAISE LAYER (Symbols) */
@@ -63,15 +62,33 @@
              * | ESC | ! | @ | # | $ | % |   | ^ | & | * | ( | ) | DEL |
              * | TAB | | | | | |   | - | = | [ | ] | \ | ` |
              * | CTRL | | | | | |   | _ | + | { | } | | | ~ |
-             *                | GUI | | SPC |   | ENT | | ALT |
+             *                | GUI | Sys Layer| SPC |   | ENT | | ALT |
              */
             bindings = <
                 &kp ESC  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp DEL
                 &kp TAB  &none  &none  &none  &none  &none      &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE
                 &kp LCTL  &none  &none  &none  &none  &none      &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
-                                     &kp LGUI  &none  &kp SPACE      &kp RET  &none  &kp RALT
+                                     &kp LGUI  &mo 3  &kp SPACE      &kp RET  &none  &kp RALT
+            >;
+        };
+
+        /* ===================== */
+        /* SYSTEM LAYER (Lower + Raise: F-Keys + System Controls) */
+        /* ===================== */
+        system_layer {
+            /*
+             * ---------------------------------------------------------------------------------
+             * | F1 | F2 | F3 | F4 | F5 | F6 |   | (none) | Play/Pause | (none) | Screenshot | (none) |
+             * | F7 | F8 | F9 | F10 | F11 | F12 |   | Prev Track | Vol- | Vol+ | Next Track | Brightness Toggle |
+             * | Ctrl | Brightness Down | Brightness Up | (none) | (none) | (none) |   | (none) | (none) | (none) | (none) | BT_CLR_ALL |
+             *                | GUI | (none) | (none) |   | (none) | (none) | Alt |
+             */
+            bindings = <
+                &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6      &none       &kp C_PP  &none  &none       &kp C_SCREENSHOT    &none
+                &kp F7  &kp F8  &kp F9  &kp F10 &kp F11 &kp F12     &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp C_BRIGHTNESS_TOG  &none
+                &kp LCTL &kp C_BRIGHTNESS_DN &kp C_BRIGHTNESS_UP &none  &none  &none      &none       &none     &none         &none       &none    &bt BT_CLR_ALL
+                                     &kp LGUI  &none  &none      &none    &none    &kp RALT
             >;
         };
     };
 };
-
