@@ -42,13 +42,13 @@
              * ---------------------------------------------------------------------------------
              * | ESC | 1 | 2 | 3 | 4 | 5 |   | 6 | 7 | 8 | 9 | 0 | Backspace |
              * | TAB | BT1 | BT2 | BT3 | BT4 | BT5 |   | Left | Down | Up | Right | (none) |
-             * | Ctrl | BT Disc | RGB Toggle | RGB Effect | RGB Effect Reverse |   | (none) | (none) | (none) | (none) | (none) | SHFT |
+             * | Ctrl | RGB Off | RGB On | Solid | Red 5% | Green 5% |   | Blue 5% | (none) | (none) | (none) | (none) | SHFT |
              *                | GUI | (none) | Space |   | Enter | Sys Layer | Alt |
              */
             bindings = <
                 &kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC
                 &kp TAB  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none  &none
-                &kp LCTL &rgb_ug RGB_OFF &rgb_ug RGB_ON &rgb_ug RGB_EFS_CMD 0 &rgb_ug RGB_COLOR_HSB(0,0,10) &none &none &none &none &none &none &kp LSFT
+                &kp LCTL &rgb_ug RGB_OFF &rgb_ug RGB_ON &rgb_ug RGB_EFS_CMD 0 &rgb_ug RGB_COLOR_HSB(0,100,5) &rgb_ug RGB_COLOR_HSB(120,100,5) &rgb_ug RGB_COLOR_HSB(240,100,5) &none &none &none &none &kp LSFT
 
                                      &kp LGUI  &none  &kp SPACE      &kp RET  &mo 3  &kp LALT
             >;
